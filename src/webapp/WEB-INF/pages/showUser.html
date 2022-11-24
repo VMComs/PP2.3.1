@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>User Page</title>
+</head>
+<body>
+
+<h3 th:text="'Name = ' + ${user.getName()}"></h3>
+<h3 th:text="'LastName = ' + ${user.getLastName()}"></h3>
+<h3 th:text="'Age = ' + ${user.getAge()}"></h3>
+
+<a th:href="@{/{id}/edit(id=${user.getId()})}">Edit</a>
+<a href="/PP2_3_1b_war_exploded/">Return to main</a>
+
+<form th:method="DELETE" th:action="@{{id}(id=${user.getId()})}">
+  <input type="submit" value="Delete">
+</form>
+
+
+</body>
+</html>

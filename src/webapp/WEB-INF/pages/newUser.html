@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <title>New User</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{/newUser}" th:object="${user}">
+  <label for="name">Name: </label>
+  <input type="text" th:field="*{name}" id="name">
+  <div style="color: red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+  <br>
+  <label for="lastName">Last name: </label>
+  <input type="text" th:field="*{lastName}" id="lastName">
+  <div style="color: red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></div>
+  <br>
+  <label for="age">Age: </label>
+  <input type="number" th:field="*{age}" id="age" th:default="0">
+  <div style="color: red" th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></div>
+  <br>
+  <input type="submit" value="Create User">
+  <a href="/PP2_3_1b_war_exploded/">Return to main</a>
+</form>
+
+</body>
+</html>
